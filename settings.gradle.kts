@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sparky"
 include(":app")
+include(":login")
