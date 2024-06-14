@@ -9,7 +9,8 @@ class LoginRepositoryImpl(
     private val userDataSource: UserDataSource
 ): LoginRepository {
 
-    override suspend fun login(email: String, password: String): Resource<UserModel> {
-        TODO("Not yet implemented")
+    override fun login(email: String, password: String): Resource<UserModel> {
+        userDataSource.login(email, password)
+        return Resource.Success(UserModel("12", "33", "111", "sadasd", "asdsad"))
     }
 }

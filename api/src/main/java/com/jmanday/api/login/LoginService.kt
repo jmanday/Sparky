@@ -9,6 +9,6 @@ interface LoginService {
         "x-api-key: Aj8vfl8S5QTEkhUD"
     )
     @POST("login")
-    suspend fun login(@Body loginRequest: LoginRequest): LoginResponseDto
+    fun login(@Body loginRequest: LoginRequest): LoginResponseDto
 
 }

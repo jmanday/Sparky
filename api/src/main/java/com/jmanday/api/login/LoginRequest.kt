@@ -1,6 +1,10 @@
 package com.jmanday.api.login
 
+import com.squareup.moshi.Json
+
 data class LoginRequest(
-    var email: String,
-    var password: String
+    @field:Json(name = "email")
+    val email: String,
+    @field:Json(name = "password")
+    val password: String
 )

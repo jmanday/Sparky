@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.jmanday.login.data.datasource.RemoteDataSource
+import com.jmanday.login.data.repository.LoginRepositoryImpl
 import com.jmanday.sparky.ui.theme.SparkyTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,6 +28,8 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        val repository = LoginRepositoryImpl(RemoteDataSource());
+        repository.login("email", "1223")
     }
 }
 
