@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+
         val repository = LoginRepositoryImpl(RemoteDataSource());
         repository.login("email", "1223")
     }
