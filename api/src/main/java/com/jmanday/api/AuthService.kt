@@ -14,5 +14,5 @@ interface AuthService {
     suspend fun register(@Body registerRequest: RegisterRequest): RegisterResponseDto
 
     @POST("login")
-    fun login(@Body loginRequest: LoginRequest): LoginResponseDto
+    suspend fun login(@Body loginRequest: LoginRequest): LoginResponseDto
 }
