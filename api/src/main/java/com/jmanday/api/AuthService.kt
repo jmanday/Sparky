@@ -13,7 +13,6 @@ interface AuthService {
     @POST("register")
     suspend fun register(@Body registerRequest: RegisterRequest): RegisterResponseDto
 
-    @Headers(BuildConfig.API_KEY)
     @POST("login")
     fun login(@Body loginRequest: LoginRequest): LoginResponseDto
 }
