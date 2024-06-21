@@ -61,7 +61,7 @@ dependencies {
     //implementation(libs.androidx.compose.ui.material3)
     implementation(libs.androidx.material3.android)
 
-    implementation(project(":login"))
+    implementation(project(":auth"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

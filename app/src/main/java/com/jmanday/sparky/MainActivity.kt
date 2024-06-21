@@ -10,9 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.jmanday.auth.AuthViewModel
+import com.jmanday.auth.DefaultAuthRepository
 import com.jmanday.login.data.datasource.RemoteDataSource
-import com.jmanday.login.data.repository.LoginRepositoryImpl
 import com.jmanday.sparky.ui.theme.SparkyTheme
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +33,9 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        val repository = LoginRepositoryImpl(RemoteDataSource());
-        repository.login("email", "1223")
+        val repository = DefaultAuthRepository(RemoteDataSource())
+        val viewModel = AuthViewModel(repository)
+        viewModel.login("email", "1223")
     }
 }
 
