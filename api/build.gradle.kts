@@ -18,7 +18,7 @@ android {
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
 
-        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEU")}\"")
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
     }
 
     buildTypes {
@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.moshi.kotlin)
     //implementation(libs.moshi.kotlin.reflect)
+    implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
