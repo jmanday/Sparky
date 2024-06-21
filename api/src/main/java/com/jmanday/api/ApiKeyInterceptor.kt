@@ -6,10 +6,8 @@ import okhttp3.Response
 class ApiKeyInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val originalResponse = chain.proceed(chain.request())
-
-        return originalResponse.newBuilder()
+        return chain.proceed(chain.request().newBuilder()
             .addHeader("x-api-key", BuildConfig.API_KEY)
-            .build()
+            .build())
     }
 }
