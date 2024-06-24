@@ -1,3 +1,5 @@
+import java.util.Properties;
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -12,6 +14,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
     }
 
     buildTypes {
@@ -23,6 +30,11 @@ android {
             )
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -38,6 +50,10 @@ dependencies {
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.moshi.kotlin)
+    //implementation(libs.moshi.kotlin.reflect)
+    implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
