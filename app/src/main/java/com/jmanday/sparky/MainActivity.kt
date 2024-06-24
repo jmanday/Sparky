@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
 
         val repository = DefaultAuthRepository(RemoteDataSource())
         val viewModel = AuthViewModel(repository)
-        viewModel.login("jmanday@gmail.com", "12a34b56D1")
     }
 }
 
